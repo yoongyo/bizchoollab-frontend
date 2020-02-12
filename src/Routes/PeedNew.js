@@ -22,7 +22,6 @@ const theme = createMuiTheme({
     },
 });  
 
-
 const PeedNew = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState(EditorState.createEmpty());
@@ -38,7 +37,15 @@ const PeedNew = () => {
             childCategory: childCategory,
             tags: tags
         }
-    })
+    });
+
+    const Post = async() => {
+        try {
+            await PeedMutate()
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     console.log(content)
     return (
@@ -65,8 +72,8 @@ const PeedNew = () => {
                             <HashTagInput/>
                         </Box>
                         <Box style={{display: 'flex', justifyContent: 'flex-end'}}>
-                            <Button variant="contained" size="large" style={{backgroundColor: HeaderColor, color: 'white', fontSize: 18}}>
-                                등록
+                            <Button onPress={Post} variant="contained" size="large" style={{backgroundColor: HeaderColor, color: 'white', fontSize: 18}}>
+                                Post
                             </Button>
                         </Box>
                     </ThemeProvider>

@@ -20,7 +20,7 @@ const PeedList = ({match}) => {
         <Box style={{minHeight: 800}}>
             <Box style={{display: "flex", height: 240, backgroundColor: CategoryColor, justifyContent:'center', alignItems: 'center'}}>
                 <Box border={2} borderColor="white" >
-                    <h2 style={{margin:0, color: 'white', padding: 15}}>{category}</h2>
+                    <h2 style={{margin:0, color: 'white', padding: 15}}>{category.toUpperCase()}</h2>
                 </Box>
             </Box>
             <Box py={10}>

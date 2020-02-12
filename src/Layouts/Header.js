@@ -23,7 +23,7 @@ const Header = () => {
                     <Box display="flex" py={2.6}>
                         <Box flex={1}>
                             <Link to="/" style={{textDecoration: 'none'}}>
-                                <Button style={{padding: 0}}><h2 style={{margin:0, color:'white'}}>bizchool</h2></Button>
+                                <h2 style={{margin:0, color:'white'}}>Bizchool Lab</h2>
                             </Link>
                         </Box>
                         <Box flex={1} display="flex" justifyContent="center">
@@ -56,7 +56,7 @@ const Header = () => {
                     </Box>
                 </Container>
             </Box>
-            <Box style={{height: 79}}/>
+            <Box style={{height: 78}}/>
         </Box>
     );
 }
