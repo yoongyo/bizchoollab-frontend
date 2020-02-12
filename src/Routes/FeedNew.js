@@ -7,7 +7,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { HeaderColor } from '../Static/Color/Color';
-import PeedMutation from '../Queries/PeedMutation';
+import FeedMutation from '../Queries/FeedMutation';
 import { useMutation } from '@apollo/react-hooks';
 import HashTagInput from '../Components/HashTagInput';
 import CategorySelect from '../Components/CategorySelect';
@@ -22,14 +22,14 @@ const theme = createMuiTheme({
     },
 });  
 
-const PeedNew = () => {
+const FeedNew = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState(EditorState.createEmpty());
     const [parentCategory, setParentCategory] = useState("");
     const [childCategory, setChildCategory] = useState("");
     const [tags, setTags] = useState("");
 
-    const PeedMutate = useMutation(PeedMutation, {
+    const FeedMutate = useMutation(FeedMutation, {
         variables: {
             title: title,
             content: content,
@@ -41,7 +41,7 @@ const PeedNew = () => {
 
     const Post = async() => {
         try {
-            await PeedMutate()
+            await FeedMutate()
         } catch (e) {
             console.log(e)
         }
@@ -83,4 +83,4 @@ const PeedNew = () => {
     )
 }
 
-export default PeedNew;
+export default FeedNew;

@@ -4,9 +4,10 @@ import Box from '@material-ui/core/Box';
 import Footer from '../src/Layouts/Footer';
 import Header from '../src/Layouts/Header';
 import Home from './Routes/Home';
-import PeedList from './Routes/PeedList';
-import PeedDetail from './Routes/PeedDetail';
-import PeedNew from './Routes/PeedNew';
+import FeedList from './Routes/FeedList';
+import FeedDetail from './Routes/FeedDetail';
+import FeedNew from './Routes/FeedNew';
+import FeedSearch from './Routes/FeedSearch';
 import { BackgroundColor } from './Static/Color/Color';
 
 
@@ -15,11 +16,12 @@ const App = () => {
         <Box style={{backgroundColor: BackgroundColor}}>
             <Router>
             <Header/>
+                <Route exact path="/" component={Home}/>
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/:category/:pk" component={PeedDetail}/>
-                    <Route path="/new" component={PeedNew}/>
-                    <Route path="/:category" component={PeedList}/>
+                    <Route paty="/:search?" component={FeedSearch}/>
+                    <Route path="/:category/:pk" component={FeedDetail}/>
+                    <Route path="/new" component={FeedNew}/>
+                    <Route path="/:category" component={FeedList}/>
                 </Switch>
             <Footer/>
             </Router>

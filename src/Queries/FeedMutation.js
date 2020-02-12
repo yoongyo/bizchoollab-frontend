@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-const PeedMutation = gql`
+const FeedMutation = gql`
 mutation ($title: String!, $categoryId: Int!, $childCategoryId: Int!, $content: String!, $thumbnail: Upload, $tags: [String!]){
-    createPeed(title: $title, category: $categoryId, childCategory: $childCategoryId, content: $contenet, thumbnail: $thumbnail, tags: $tag) {
-        peed {
+    createFeed(title: $title, category: $categoryId, childCategory: $childCategoryId, content: $contenet, thumbnail: $thumbnail, tags: $tag) {
+        feed {
         id
         title
         content
@@ -22,4 +22,4 @@ mutation ($title: String!, $categoryId: Int!, $childCategoryId: Int!, $content: 
   }
 `
 
-export default PeedMutation;
+export default FeedMutation;

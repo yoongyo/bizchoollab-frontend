@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-const PeedDetailQuery = gql`
-query peed($peedId: Int!){
-	peed(id: $peedId){
+const FeedDetailQuery = gql`
+query feed($feedId: Int!){
+	feed(id: $feedId){
         title
         thumbnail  
         content
@@ -15,4 +15,4 @@ query peed($peedId: Int!){
 }
 `
 
-export default PeedDetailQuery;
+export default FeedDetailQuery;

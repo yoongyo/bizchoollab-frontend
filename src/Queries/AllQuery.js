@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const AllList = gql`
 {
-  allPeed {
+  allFeed {
     id
     title
     category {

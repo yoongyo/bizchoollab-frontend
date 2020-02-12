@@ -8,13 +8,13 @@ import ContentCard from '../Components/ContentCard';
 import { CategoryColor } from '../Static/Color/Color';
 import LoadingList from '../Components/LoadingList';
 
-const PeedList = ({match}) => { 
+const FeedList = ({match}) => { 
     const category = match.params.category
     const { data, error, loading } = useQuery(AllQuery);
     if (error) return <h1>Error!</h1>
     if (loading) return <LoadingList/>
 
-    const peeds = data.allPeed.filter(peed => peed.category.name === category);
+    const feeds = data.allFeed.filter(feed => feed.category.name === category);
     
     return (
         <Box style={{minHeight: 800}}>
@@ -25,7 +25,7 @@ const PeedList = ({match}) => {
             </Box>
             <Box py={10}>
                 <Container maxWidth="lg">
-                    {peeds.map((item, index) => (
+                    {feeds.map((item, index) => (
                         <Box style={{display: "inline-block", width: '33.333333%'}}>
                             <Link href={category+"/"+item.id}>
                             <ContentCard 
@@ -43,4 +43,4 @@ const PeedList = ({match}) => {
     )
 } 
 
-export default PeedList;
+export default FeedList;
