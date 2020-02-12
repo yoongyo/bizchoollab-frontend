@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import SearchBar from '../Components/SearchBar';
 import { HeaderColor } from '../Static/Color/Color';
@@ -22,28 +22,28 @@ const Header = () => {
                 <Container maxWidth="lg">
                     <Box display="flex" py={2.6}>
                         <Box flex={1}>
-                            <Link href="/" style={{textDecoration: 'none'}}>
+                            <Link to="/" style={{textDecoration: 'none'}}>
                                 <Button style={{padding: 0}}><h2 style={{margin:0, color:'white'}}>bizchool</h2></Button>
                             </Link>
                         </Box>
                         <Box flex={1} display="flex" justifyContent="center">
                             <Box flex={1} display="flex" alignItems="center" justifyContent="center">
-                                <Link href="/startup" style={{textDecorationLine: 'none', color: 'white'}}>
+                                <Link to="/startup" style={{textDecorationLine: 'none', color: 'white'}}>
                                     <h4 style={{margin: 0}}>STARTUP</h4>
                                 </Link>
                             </Box>
                             <Box flex={1} display="flex" alignItems="center" justifyContent="center">
-                                <Link href="/tech" style={{textDecorationLine: 'none', color: 'white'}}>
+                                <Link to="/tech" style={{textDecorationLine: 'none', color: 'white'}}>
                                     <h4 style={{margin: 0}}>TECH</h4>
                                 </Link>
                             </Box>
                             <Box flex={1} display="flex" alignItems="center" justifyContent="center">
-                                <Link href="/news" style={{textDecorationLine: 'none', color: 'white'}}>
+                                <Link to="/news" style={{textDecorationLine: 'none', color: 'white'}}>
                                     <h4 style={{margin: 0}}>NEWS</h4>
                                 </Link>
                             </Box>
                             <Box flex={1} display="flex" alignItems="center" justifyContent="center">
-                                <Link href="/portfolio" style={{textDecorationLine: 'none', color: 'white'}}>
+                                <Link to="/portfolio" style={{textDecorationLine: 'none', color: 'white'}}>
                                     <h4 style={{margin: 0}}>PORTFOLIO</h4>
                                 </Link>
                             </Box>

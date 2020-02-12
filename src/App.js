@@ -13,16 +13,16 @@ import { BackgroundColor } from './Static/Color/Color';
 const App = () => {
     return (
         <Box style={{backgroundColor: BackgroundColor}}>
-            <Header/>
             <Router>
+            <Header/>
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/:category/:pk" component={PeedDetail}/>
                     <Route path="/new" component={PeedNew}/>
                     <Route path="/:category" component={PeedList}/>
                 </Switch>
-            </Router>
             <Footer/>
+            </Router>
         </Box>
     )
 }
