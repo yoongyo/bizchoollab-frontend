@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import AllQuery from '../Queries/AllQuery';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import ContentCard from '../Components/ContentCard';
 import { CategoryColor } from '../Static/Color/Color';
 import LoadingList from '../Components/LoadingList';
@@ -27,7 +27,7 @@ const FeedList = ({match}) => {
                 <Container maxWidth="lg">
                     {feeds.map((item, index) => (
                         <Box style={{display: "inline-block", width: '33.333333%'}}>
-                            <Link href={category+"/"+item.id}>
+                            <Link to={category+"/"+item.id}>
                             <ContentCard 
                                 title={item.title} 
                                 content={item.content} 

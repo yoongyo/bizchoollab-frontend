@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { TagInput } from 'reactjs-tag-input'
 
-const HashTagInput = () => {
-    const [tags, setTags] = useState([])
+const HashTagInput = ({setTags, tags}) => {
 
     const onTagsChanged = (tags) => {
         setTags(tags);
@@ -14,7 +13,8 @@ const HashTagInput = () => {
             tagStyle={`background: #00adb5`}
             placeholder="관련있는 해시태그를 넣어주세요!"
             wrapperStyle={{position: 'static', width: '96%', transform: 'none'}}
-            tags={tags} onTagsChanged={onTagsChanged.bind(tags)} 
+            tags={tags} 
+            onTagsChanged={onTagsChanged.bind(tags)} 
         />
     )
 }

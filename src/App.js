@@ -16,11 +16,11 @@ const App = () => {
         <Box style={{backgroundColor: BackgroundColor}}>
             <Router>
             <Header/>
-                <Route exact path="/" component={Home}/>
                 <Switch>
-                    <Route paty="/:search?" component={FeedSearch}/>
+                    <Route exact path="/" component={Home}/>
                     <Route path="/:category/:pk" component={FeedDetail}/>
                     <Route path="/new" component={FeedNew}/>
+                    <Route path="/search" component={FeedSearch}/>
                     <Route path="/:category" component={FeedList}/>
                 </Switch>
             <Footer/>

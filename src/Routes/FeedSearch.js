@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import queryString from 'query-string';
 import { useQuery } from '@apollo/react-hooks';
 import FeedSearchQuery from '../Queries/FeedSearchQuery';
 import LoadingList from '../Components/LoadingList';
@@ -10,18 +9,22 @@ import Link from '@material-ui/core/Link';
 import ContentCard from '../Components/ContentCard';
 import { CategoryColor } from '../Static/Color/Color';
 
-
-const FeedSearch = withRouter((location) => {
-    const term = queryString.parse(location.search).term;
+const FeedSearch = withRouter(({ location: { search }}) => {
+    const term = search.split("=")[1];
+    console.log(term);
     const { data, erorr, loading } = useQuery(FeedSearchQuery, {
-        variables: { term: term } 
+        skip: term === undefined,
+        variables: { 
+            term: term 
+        }
     });
 
     if (erorr) return <h1>Error</h1>
-  	if (loading) return <LoadingList/>
+    if (loading) return <LoadingList/>
     
     const feeds = data.allFeed;
-    
+    console.log(feeds);
+
     return (
         <Box style={{minHeight: 800}}>
             <Box style={{display: "flex", height: 240, backgroundColor: CategoryColor, justifyContent:'center', alignItems: 'center'}}>

@@ -27,7 +27,7 @@ const FeedNew = () => {
     const [content, setContent] = useState(EditorState.createEmpty());
     const [parentCategory, setParentCategory] = useState("");
     const [childCategory, setChildCategory] = useState("");
-    const [tags, setTags] = useState("");
+    const [tags, setTags] = useState([]);
 
     const FeedMutate = useMutation(FeedMutation, {
         variables: {
@@ -47,7 +47,6 @@ const FeedNew = () => {
         }
     }
 
-    console.log(content)
     return (
         <Box py={8}>
             <Container maxWidth="sm">
@@ -57,7 +56,11 @@ const FeedNew = () => {
                             <TextField label="Title" fullWidth color="primary" onChange={(e) => setTitle(e.target.value)}/>
                         </Box>
                         <Box>
-                            <CategorySelect/>
+                            <CategorySelect 
+                                setParentCategory={setParentCategory} 
+                                setChildCategory={setChildCategory}
+                                parentCategory={parentCategory}
+                            />
                         </Box>
                         <Box mt={4} px={1} py={1} style={{backgroundColor: 'white', minHeight: 600}}>
                             <Editor
@@ -69,7 +72,7 @@ const FeedNew = () => {
                             />
                         </Box>
                         <Box py={4} style={{position: 'relative'}}>
-                            <HashTagInput/>
+                            <HashTagInput setTags={setTags} tags={tags}/>
                         </Box>
                         <Box style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Button onPress={Post} variant="contained" size="large" style={{backgroundColor: HeaderColor, color: 'white', fontSize: 18}}>
