@@ -24,8 +24,8 @@ const SearchBar = withRouter(({history}) => {
 		<InputBase
 			placeholder="Search…"
 			classes={{
-			root: classes.inputRoot,
-			input: classes.inputInput,
+				root: classes.inputRoot,
+				input: classes.inputInput,
 			}}
 			inputProps={{ 'aria-label': 'search' }}
 			onKeyPress={handleKeyPress}

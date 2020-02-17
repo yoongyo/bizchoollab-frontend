@@ -5,11 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-function Escape(content){
-    return (
-    <div dangerouslySetInnerHTML={ {__html: content} }/>
-    )
-}
 
 const ContentCard = ({title, thumbnail, content, createdAt}) => {
     console.log(createdAt)

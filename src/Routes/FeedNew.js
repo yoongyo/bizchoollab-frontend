@@ -11,17 +11,8 @@ import { useMutation } from '@apollo/react-hooks';
 import HashTagInput from '../Components/HashTagInput';
 import CategorySelect from '../Components/CategorySelect';
 import ImageUpload from '../Components/ImageUpload';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Footer from '../Layouts/Footer';
 import Header from '../Layouts/Header';
-
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: HeaderColor
-        },
-    },
-});  
 
 const FeedNew = () => {
     const [title, setTitle] = useState("");
@@ -54,30 +45,28 @@ const FeedNew = () => {
             <Box py={8}>
                 <Container style={{maxWidth: 686, padding:0}}>
                     <form noValidate autoComplete="off">
-                        <ThemeProvider theme={theme}>
-                            <Box my={2.5}>
-                                <TextField label="Title" fullWidth color="primary" onChange={(e) => setTitle(e.target.value)}/>
-                            </Box>
-                            <Box>
-                                <CategorySelect 
-                                    setParentCategory={setParentCategory} 
-                                    setChildCategory={setChildCategory}
-                                    parentCategory={parentCategory}
-                                />
-                            </Box>
-                            <ImageUpload/>
-                            <Box mt={4} px={1} py={1} style={{backgroundColor: 'white', minHeight: 600}}>
-                                <CustomCKEditor/>
-                            </Box>
-                            <Box py={4} style={{position: 'relative'}}>
-                                <HashTagInput setTags={setTags} tags={tags}/>
-                            </Box>
-                            <Box style={{display: 'flex', justifyContent: 'flex-end'}}>
-                                <Button variant="contained" size="large" style={{backgroundColor: HeaderColor, color: 'white', fontSize: 18}} onClick={Post}>
-                                    Post
-                                </Button>
-                            </Box>
-                        </ThemeProvider>
+                        <Box my={2.5}>
+                            <TextField label="Title" fullWidth color="primary" onChange={(e) => setTitle(e.target.value)}/>
+                        </Box>
+                        <Box>
+                            <CategorySelect 
+                                setParentCategory={setParentCategory} 
+                                setChildCategory={setChildCategory}
+                                parentCategory={parentCategory}
+                            />
+                        </Box>
+                        <ImageUpload/>
+                        <Box mt={4} px={1} py={1} style={{backgroundColor: 'white', minHeight: 600}}>
+                            <CustomCKEditor/>
+                        </Box>
+                        <Box py={4} style={{position: 'relative'}}>
+                            <HashTagInput setTags={setTags} tags={tags}/>
+                        </Box>
+                        <Box style={{display: 'flex', justifyContent: 'flex-end'}}>
+                            <Button variant="contained" size="large" style={{backgroundColor: HeaderColor, color: 'white', fontSize: 18}} onClick={Post}>
+                                Post
+                            </Button>
+                        </Box>
                     </form>
                 </Container>
             </Box>

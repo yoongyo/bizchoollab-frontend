@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
-import Footer from '../src/Layouts/Footer';
-import Header from '../src/Layouts/Header';
 import Home from './Routes/Home';
 import FeedList from './Routes/FeedList';
 import FeedDetail from './Routes/FeedDetail';
@@ -12,6 +10,7 @@ import Login from './Routes/Login';
 import Signup from './Routes/Signup';
 import Profile from './Routes/Profile';
 import { BackgroundColor } from './Static/Color/Color';
+
 
 
 const App = () => {

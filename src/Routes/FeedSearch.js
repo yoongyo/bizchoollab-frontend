@@ -24,7 +24,7 @@ const FeedSearch = withRouter(({ location: { search }}) => {
     if (erorr) return <h1>Error</h1>
     if (loading) return <LoadingList/>
     const feeds = data.allTag[0].tag;
-    console.log(feeds)
+    console.log(feeds);
     return (
         <Box>
             <Header/>
