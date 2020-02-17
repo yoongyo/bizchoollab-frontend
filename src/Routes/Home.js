@@ -7,6 +7,8 @@ import Link from '@material-ui/core/Link';
 import ContentCard from '../Components/ContentCard';
 import { CategoryColor } from '../Static/Color/Color';
 import LoadingList from '../Components/LoadingList';
+import Footer from '../Layouts/Footer';
+import Header from '../Layouts/Header';
 
 const Home = () => { 
     const { data, error, loading } = useQuery(AllQuery);
@@ -15,28 +17,32 @@ const Home = () => {
 
     const all = data.allFeed;
     return (
-        <Box style={{minHeight: 800}}>
-            <Box style={{display: "flex", height: 240, backgroundColor: CategoryColor, justifyContent:'center', alignItems: 'center'}}>
-                <Box border={2} borderColor="white" >
-                    <h2 style={{margin:0, color: 'white', padding: 15}}>Home</h2>
+        <Box>
+            <Header/>
+            <Box style={{minHeight: 800}}>
+                <Box style={{display: "flex", height: 240, backgroundColor: CategoryColor, justifyContent:'center', alignItems: 'center'}}>
+                    <Box border={2} borderColor="white" >
+                        <h2 style={{margin:0, color: 'white', padding: 15}}>Home</h2>
+                    </Box>
+                </Box>
+                <Box py={10}>
+                    <Container maxWidth="lg">
+                        {all.map((item, index) => (
+                            <Box style={{display: "inline-block", width: '33.333333%'}}>
+                                <Link href={item.category.name + '/' + item.id}>
+                                <ContentCard 
+                                    title={item.title} 
+                                    content={item.content} 
+                                    thumbnail={item.thumbnail} 
+                                    createdAt={item.createdAt}
+                                />
+                                </Link>
+                            </Box>
+                        ))}
+                    </Container>
                 </Box>
             </Box>
-            <Box py={10}>
-                <Container maxWidth="lg">
-                    {all.map((item, index) => (
-                        <Box style={{display: "inline-block", width: '33.333333%'}}>
-                            <Link href={item.category.name + '/' + item.id}>
-                            <ContentCard 
-                                title={item.title} 
-                                content={item.content} 
-                                thumbnail={item.thumbnail} 
-                                createdAt={item.createdAt}
-                            />
-                            </Link>
-                        </Box>
-                    ))}
-                </Container>
-            </Box>
+            <Footer/>
         </Box>
     )
 } 

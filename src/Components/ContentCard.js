@@ -33,7 +33,7 @@ const ContentCard = ({title, thumbnail, content, createdAt}) => {
                             {title}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            {Escape(content)}
+                            {content}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

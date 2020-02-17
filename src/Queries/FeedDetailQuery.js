@@ -11,6 +11,9 @@ query feed($feedId: Int!){
             id
             name
         }
+        tag {
+            name
+        }
     }
 }
 `

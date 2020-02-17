@@ -25,9 +25,9 @@ const CategorySelect = ({setChildCategory, setParentCategory, parentCategory}) =
                         input={<Input id="grouped-native-select" />}
                         onChange={(e) => setParentCategory(e.target.value)}
                     >
-                        <option value="" />
+                        <option value=""/>
                         {pCategory.map(item => (
-                            <option value={item.name}>{item.name.toUpperCase()}</option>
+                            <option key={item.id} value={item.name}>{item.name.toUpperCase()}</option>
                         ))}
                     </Select>
                 </FormControl>
@@ -43,7 +43,7 @@ const CategorySelect = ({setChildCategory, setParentCategory, parentCategory}) =
                     >
                         <option value=""/>
                         {cCategory.filter(c => c.category.name === parentCategory).map(item => (
-                            <option value={item.name}>{item.name.toUpperCase()}</option>
+                            <option key={item.id} value={item.name}>{item.name.toUpperCase()}</option>
                         ))}
                     </Select>
                 </FormControl>

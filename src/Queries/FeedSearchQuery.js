@@ -1,19 +1,20 @@
 import gql from 'graphql-tag';
 
 const FeedSearchQuery = gql`
-query ($term: String!){   
-    allFeed(term: $term) {
-        id
-        title
-        category {
+query ($term: String!) {   
+    allTag(term: $term) {
+        tag {
             id
-            name
+            title
+            category {
+                id
+                name
+            }
+            thumbnail
+            content
+            createdAt
         }
-        thumbnail
-        content
-        createdAt
     }
-    
 }
 `
 
