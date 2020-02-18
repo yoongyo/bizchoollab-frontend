@@ -6,8 +6,11 @@ import Container from '@material-ui/core/Container';
 import SearchBar from '../Components/SearchBar';
 import { HeaderColor } from '../Static/Color/Color';
 import { MdAccountCircle } from "react-icons/md";
+import { useIsLoggedIn } from '../Contexts/AuthContext';
 
 const Header = () => {
+    const isLoggedIn = useIsLoggedIn();
+    console.log(isLoggedIn);
     return (
         <Box>
             <Box 
@@ -56,9 +59,16 @@ const Header = () => {
                                 <SearchBar/>
                             </Box>
                             <IconButton style={{marginLeft: 10, padding: 1}}>
-                                <Link to="/accounts/login" style={{textDecoration: 'none', color: 'rgb(0, 75, 79)', height: 34}}>
-                                    <MdAccountCircle size={34}/>
-                                </Link>
+                                {isLoggedIn ? (
+                                    <div style={{width: 34, height: 34, borderWidth: 1, borderRadius: 17, backgroundColor: 'rgb(234,56,111)'}}>
+
+                                    </div>
+                                ):(
+                                    <Link to="/accounts/login" style={{textDecoration: 'none', color: 'rgb(0, 75, 79)', height: 34}}>
+                                        <MdAccountCircle size={34}/>
+                                    </Link>
+                                )}
+                                
                             </IconButton>
                         </Box>
                     </Box>

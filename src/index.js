@@ -15,10 +15,11 @@ const theme = createMuiTheme({
         },
     },
 });  
+const isLoggedIn = localStorage.getItem("isLoggedIn");
 
 ReactDOM.render(
     <ApolloProvider client={Client}>
-        <AuthProvider>
+        <AuthProvider isLoggedIn={isLoggedIn}>
             <ThemeProvider theme={theme}>
                 <App />
             </ThemeProvider>

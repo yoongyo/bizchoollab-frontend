@@ -12,26 +12,27 @@ import { BackgroundColor, HeaderColor, FooterColor } from '../Static/Color/Color
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const Login = () => {
+const Login = ({history}) => {
     const login = useLogin();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [keepLogin, setKeepLogin] = useState(true);
+
     const loginMuatation = useMutation(LoginMutation, {
         variables: {
             id: id,
             password: password
         }
-    })
+    })[0];
 
     const LoginClick = async() => {
         try {
             setLoading(true);
             const {data: {tokenAuth}} = await loginMuatation();
-            console.log(tokenAuth);
             if (tokenAuth) {
                 login(tokenAuth.token, keepLogin);
+                history.push('/accounts');
             } else {
 
             }

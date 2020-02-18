@@ -6,7 +6,6 @@ export const AuthProvider = ({isLoggedIn: isLoggedInProp, children}) =>{
     const [isLoggedIn, setIsLoggedIn] = useState(isLoggedInProp);
     
     const Login = async(token, keepLogin) => {
-        console.log(token);
         try {
             if (keepLogin) {
                 await localStorage.setItem("isLoggedIn", "true");
